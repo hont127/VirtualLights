@@ -61,31 +61,6 @@
 				return 1 / (kc + kl * d + kq * d  * d);
 			}
 
-			bool IsInCube(float3 p)
-			{
-				bool r = true;
-
-				if (dot(_CubeLight_PX.xyz - _CubeLight_Origin.xyz, p - _CubeLight_Origin.xyz) < -0.0001)
-					r = false;
-
-				else if (dot(_CubeLight_Origin.xyz - _CubeLight_PX.xyz, p - _CubeLight_PX.xyz) < -0.0001)
-					r = false;
-
-				else if (dot(_CubeLight_PZ.xyz - _CubeLight_Origin.xyz, p - _CubeLight_Origin.xyz) < -0.0001)
-					r = false;
-
-				else if (dot(_CubeLight_Origin.xyz - _CubeLight_PZ.xyz, p - _CubeLight_PZ.xyz) < -0.0001)
-					r = false;
-
-				else if (dot(_CubeLight_PY.xyz - _CubeLight_Origin.xyz, p - _CubeLight_Origin.xyz) < -0.0001)
-					r = false;
-
-				else if (dot(_CubeLight_Origin.xyz - _CubeLight_PY.xyz, p - _CubeLight_PY.xyz) < -0.0001)
-					r = false;
-
-				return r;
-			}
-
 			float3 GetIntersectPoint(float3 planeNormal, float3 planePosition, float3 p0, float3 p1)
 			{
 				int sign1 = sign(dot(planeNormal, planePosition - p0));
